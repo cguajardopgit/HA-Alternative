@@ -1,0 +1,25 @@
+# Just an out of the box nginx server that delivers the "Welcome to Nginx" header
+# to test whether everything is working or not.
+# just curl -I into it that should be fine.
+
+apiVersion: #Change me
+kind: #Change me (Deployment won't work on old versions)
+metadata:
+  name: HaTest
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      run: HaTest
+  template:
+    metadata:
+      labels:
+        run: HaTest
+    spec:
+      containers:
+      - image: nginx:latest
+        imagePullPolicy: IfNotPresent
+        name: HaTest
+        ports:
+        - containerPort: 80
+          protocol: TCP

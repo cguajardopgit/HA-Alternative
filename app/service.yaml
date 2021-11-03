@@ -1,0 +1,13 @@
+apiVersion: #Change me
+kind: Service
+metadata:
+  name: HaTest
+  namespace: default
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    run: HaTest
+  type: NodePort

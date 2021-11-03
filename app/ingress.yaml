@@ -1,0 +1,8 @@
+apiVersion: #Change me
+kind: Ingress
+metadata:
+  name: ingress
+spec:
+  backend:
+    serviceName: HaTest
+    servicePort: 80
